@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+node_modules/
+build/
+temp/
+.env
+# for test coverage
+coverage 
+dist
+
+# we don't want to images or assets in uploads to be committed, bu we want to the folder uploads to be committed
+uploads/*
+!uploads/.gitkeep
