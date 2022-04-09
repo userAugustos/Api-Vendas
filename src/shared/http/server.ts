@@ -1,7 +1,9 @@
+import 'reflect-metadata';
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import routes from './routes';
 import AppError from '@shared/errors/AppError';
+import '@shared/typeorm'; // calling index in typeorm, and access all configs
 
 const app = express(); // instance of express
 
@@ -24,4 +26,4 @@ app.use((error: Error, request: Request, response: Response, next: NextFunction)
   });
 });
 
-app.listen(3333, () => console.log('papa running'));
+app.listen(3333, () => console.log('serve running'));
