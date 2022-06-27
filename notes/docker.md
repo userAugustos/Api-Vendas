@@ -35,3 +35,17 @@ o parâmetro :-p: para definir uma porta do docker (importante que, a porta do l
 Pra ver se um docker está em execução rode o comando
 
 > docker ps
+
+ - Outros Comandos:
+
+> docker rm <container-name>
+
+Exclui um container
+
+> docker start <container-name>
+
+Iniciar um container já criado
+
+> docker inspect
+
+Lista todas as informações do container
