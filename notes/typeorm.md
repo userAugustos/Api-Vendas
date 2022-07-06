@@ -25,3 +25,10 @@ Ele vai nos permitir relacionar nossas classes JS com as tabelas relacionais
 Na Prática o que vamos fazer é criar _entidades_ que vão ser as representações de dados de uma tabelas, e _repositórios_ para manipular os dados.
 
 > Então as operações de inserir, alterar, remover registros, vamos fazer com os repositŕios
+
+
+### Entidades
+
+> see https://orkhan.gitbook.io/typeorm/docs/entities
+
+Uma entidade é uma classe que mapeia pra uma tabela ou uma coleção(em noSQL)
