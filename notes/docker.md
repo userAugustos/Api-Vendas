@@ -1,10 +1,10 @@
 # Docker
 
-- Conceitos básicos
+ **Conceitos básicos**
 
-> A principal utilidade do Docker é a criação de ambientes isolados através dos **containers**. Ao utilizar container você garante que não haverá conflito entre ferramentas no seu PC ou em servidores
+  A principal utilidade do Docker é a criação de ambientes isolados através dos **containers**. Ao utilizar container você garante que não haverá conflito entre ferramentas no seu PC ou em servidores
 
-- Containers
+ **Containers**
 
 > Container é um processo em execução, com alguns recursos adicionais encapsulados para mentê-lo isolado do host edo outros containers
 
@@ -12,7 +12,7 @@ _esse container vem com recursos para atender a demanda especifica pela qual foi
 
 Um dos aspectos mais importantes desse isolamento é que cada container interage com seu próprio sistema de arquivos privado; esse sistema de arquivos é fornecido por uma imagem docker
 
-- Imagem
+**Imagem**
 
 Uma imagem inclui tudo que é necessário para executar um aplicativo
 
@@ -20,18 +20,31 @@ Uma imagem inclui tudo que é necessário para executar um aplicativo
 
 o Docker Hub é o repositório oficial para armazenamento das imagens
 
-Comandos basicos do docker
+**Comandos basicos do docker**
+_[Imagem dos comandos](https://imgur.com/a/Z7FdtiW)_
 
-- https://imgur.com/a/Z7FdtiW
+- Docker(s) em execução
+  ```docker ps```
+<br/>
+- Excluir um container
+  ```docker rm <container-name>```
+<br/>
+- Iniciar um container já criado
+  ```docker start <container-name>```
+<br/>
+- Lista todas as informações do container
+  ```docker inspect <container-name> || <container-id>```
 
-> docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+<br/>
+##### Exemplo de um comando completo
 
-então aqui rodamos pela primeira vez um docker de postgres
+```js
+docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+```
+
+Então aqui rodamos pela primeira vez um docker de postgres
 criamos o container :docker run:
-passamos o --name de docker
-o parâmetro :-e: para definir uma variavel de ambiente, no caso POSTGRES_PASSWORD
-o parâmetro :-p: para definir uma porta do docker (importante que, a porta do lado esquedo do : é a porta no nosso computador no caso 5432 e a porta do lado direito do : é a porta no container, que nunca pode mudar)
-
-Pra ver se um docker está em execução rode o comando
-
-> docker ps
+passamos o ```--name``` do docker
+o parâmetro ```:-e:``` para definir uma variavel de ambiente, no caso:```POSTGRES_PASSWORD```
+o parâmetro ```:-p:``` para definir uma porta do docker 
+> _(importante que, a porta do lado esquedo do ```:``` é a porta no nosso computador no caso 5432 e a porta do lado direito do ```:``` é a porta no container, que nunca pode mudar)_
