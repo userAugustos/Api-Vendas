@@ -1,9 +1,7 @@
 import AppError from '@shared/errors/AppError';
 import Product from '../typeorm/entities/product';
 import { ProductRepository } from '../typeorm/repositories/ProductRepository';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore --adding ignore because of the json import error--
-import errorTable from '@shared/errors/errorTable';
+import errorTable from '@shared/errors/errorTable.json';
 
 export default class SearchProductService {
   public async execute(id: string): Promise<Product> {
