@@ -1,5 +1,6 @@
 import AppError from '@shared/errors/AppError';
 import errorTable from '@shared/errors/errorTable.json';
+import { getCustomRepository } from 'typeorm';
 import Product from '../typeorm/entities/product';
 import { ProductRepository } from '../typeorm/repositories/ProductRepository';
 import IUpdateProductRequest from '../types/UpdateProductType';
@@ -13,7 +14,7 @@ export default class UpdateProductService {
     price,
     quantity,
   }: IUpdateProductRequest): Promise<Product> {
-    const productsRepository = new ProductRepository();
+    const productsRepository = getCustomRepository(ProductRepository);
     const searchProduct = new SearchProductService();
     const listProduct = new ListProductService();
 
