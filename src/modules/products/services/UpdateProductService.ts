@@ -22,9 +22,6 @@ export default class UpdateProductService {
 
     const productsExists = await listProduct.execute({ where: { name } }); // return an array, even if is only 1 product
 
-    // eslint-disable-next-line no-console
-    console.log(productsExists);
-
     if (productsExists[0] && name !== product.name) {
       // verify if exists a product with the name has been passed, and of course, if it's not already the name of the project it's to be changed
       throw new AppError(

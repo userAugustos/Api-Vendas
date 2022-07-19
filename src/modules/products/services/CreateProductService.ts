@@ -3,12 +3,17 @@
 import AppError from '@shared/errors/AppError';
 import errorTable from '@shared/errors/errorTable.json';
 import { getCustomRepository } from 'typeorm';
+import Product from '../typeorm/entities/product';
 import { ProductRepository } from '../typeorm/repositories/ProductRepository';
 import { ICreateProductRequest } from '../types/CreateProductTypes';
 
 export default class CreateProductService {
   // every service will have one method, it's a pattern of how it's been teach in clas
-  public async execute({ name, price, quantity }: ICreateProductRequest) {
+  public async execute({
+    name,
+    price,
+    quantity,
+  }: ICreateProductRequest): Promise<Product> {
     // now we need acess the repository, make the business rules to execute the service
     const productsRepository = getCustomRepository(ProductRepository);
 
