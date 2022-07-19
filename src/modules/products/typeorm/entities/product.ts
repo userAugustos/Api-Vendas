@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('product') //decorator Entity, and the name of the table where my entity (class) refer
+@Entity('products') //decorator Entity, and the name of the table where my entity (class) refer
 class Product {
   constructor() {
     // so, for each attribute, will return an error of initializer
