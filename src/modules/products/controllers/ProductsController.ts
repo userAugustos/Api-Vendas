@@ -1,4 +1,3 @@
-import AppError from '@shared/errors/AppError';
 import { Request, Response } from 'express';
 import CreateProductService from '../services/CreateProductService';
 import DeleteProductService from '../services/DeleteProductService';
