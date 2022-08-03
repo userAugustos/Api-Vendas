@@ -1,5 +1,6 @@
 import AppError from '@shared/errors/AppError';
 import errorTable from '@shared/errors/errorTable.json';
+import { hash } from 'bcryptjs';
 import { getCustomRepository } from 'typeorm';
 import User from '../typeorm/entities/User';
 import UsersRepository from '../typeorm/repositories/UserRepository';
@@ -23,10 +24,12 @@ export default class CreateUser {
       );
     }
 
+    const hasedPassword = await hash(password, 8);
+
     const user = usersRepository.create({
       name,
       email,
-      password,
+      password: hasedPassword,
       avatar,
     });
 
