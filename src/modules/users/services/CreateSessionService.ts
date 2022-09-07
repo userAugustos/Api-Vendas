@@ -4,7 +4,7 @@ import { getCustomRepository } from 'typeorm';
 import UsersRepository from '../typeorm/repositories/UserRepository';
 import { ISessionRequest, ISessionResponse } from '../types/autenticate';
 
-class CreateSession {
+class CreateUserSession {
   public async execute({ email, password }: ISessionRequest): Promise<ISessionResponse> {
     const usersRepository = getCustomRepository(UsersRepository);
 
@@ -26,4 +26,4 @@ class CreateSession {
   }
 }
 
-export default CreateSession;
+export default CreateUserSession;
