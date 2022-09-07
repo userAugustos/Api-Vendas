@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import express, { Request, Response, NextFunction } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
@@ -14,6 +14,7 @@ app.use(routes);
 
 // temp. middleware to errors
 app.use((error: Error, request: Request, response: Response, next: NextFunction) => {
+  // in this case, i don't know exactly why, but i need this 4 params to be passed exactly this way ^
   if (error instanceof AppError) {
     // when error is a instance of your class, we can return directly
     return response.status(error.statusCode).json({
@@ -27,4 +28,5 @@ app.use((error: Error, request: Request, response: Response, next: NextFunction)
   });
 });
 
-app.listen(3333, () => console.log('Server listening on port: 3333'));
+// eslint-disable-next-line no-console
+app.listen(3333, () => console.debug('Server listening on port: 3333'));
