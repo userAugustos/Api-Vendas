@@ -1,6 +1,7 @@
 import AppError from '@shared/errors/AppError';
 import { compare } from 'bcryptjs';
 import { getCustomRepository } from 'typeorm';
+import { sign } from 'jsonwebtoken';
 import UsersRepository from '../typeorm/repositories/UserRepository';
 import { ISessionRequest, ISessionResponse } from '../types/autenticate';
 
@@ -20,8 +21,14 @@ class CreateUserSession {
       throw new AppError('Incorrect email/password', 401);
     }
 
+    const token = sign({}, 'aquipodepassarqualquercoisaparabasedacryptografia', {
+      subject: user.id, // um valor que queros garantir que nosso payload possui
+      expiresIn: '1d',
+    });
+
     return {
       user,
+      token,
     };
   }
 }

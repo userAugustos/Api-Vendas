@@ -7,4 +7,5 @@ export interface ISessionRequest {
 
 export interface ISessionResponse {
   user: User;
+  token: string;
 }
