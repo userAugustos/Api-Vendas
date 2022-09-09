@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import UsersController from '../controllers/UsersController';
+import isAuthenticated from '../middlewares/isAuthenticated';
 
 const userRouter = Router();
 const controller = new UsersController();
 
 userRouter.post('/', controller.create);
-userRouter.get('/', controller.index);
+userRouter.get('/', isAuthenticated, controller.index);
 
 export default userRouter;
